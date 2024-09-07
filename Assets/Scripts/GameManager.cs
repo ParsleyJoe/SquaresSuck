@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,33 +16,41 @@ public class GameManager : MonoBehaviour
     public float startSpawningIn;
     public float spawnBombsEvery; // ___ seconds
     public float spawnEnemiesEvery;
+    public float spawnEnemiesLimit = 1.0f;
+    public float decrementSpawnRateBy = 0.3f;
+    public int enemiesInSceneLimit = 10;
+    private float decrementCountdown = 30f;
+    private float currentDecrementTime;
+    private int enemiesInScene;
     private float spawnEnemiesTime;
     public float spawnBoundX;
     public float spawnBombY = 1;
     public float spawnEnemyY = -2.3f;
     public float spawnPowerUpEvery; // ___ seconds
     private float currentPowerUpSpawnTime;
-    private int enemiesInScene;
     private GameObject player;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnBombs", startSpawningIn, spawnBombsEvery);
+        InvokeRepeating(nameof(SpawnBombs), startSpawningIn, spawnBombsEvery);
         gameOverScreen.SetActive(false);
         Time.timeScale = 1;
+        score = 0;
 
         spawnEnemiesTime = spawnEnemiesEvery;
         player = GameObject.FindGameObjectWithTag("Player");
         currentPowerUpSpawnTime = spawnPowerUpEvery;
+        currentDecrementTime = decrementCountdown;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnEnemiesTime <= 0)
+        enemiesInScene = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (spawnEnemiesTime <= 0 && enemiesInScene <= enemiesInSceneLimit)
         {
             SpawnEnemies();
             spawnEnemiesTime = spawnEnemiesEvery;
@@ -51,6 +60,17 @@ public class GameManager : MonoBehaviour
             spawnEnemiesTime -= Time.deltaTime;
         }
 
+        if (currentDecrementTime <= 0)
+        {
+            spawnEnemiesEvery -= decrementSpawnRateBy;
+            currentDecrementTime = decrementCountdown;
+            Debug.Log("Enemies now spawn every " + spawnEnemiesEvery + " seconds");
+        }
+        else
+        {
+            currentDecrementTime -= Time.deltaTime;
+        }
+
         if (Time.timeScale == 0)
         {
             gameOverScreen.SetActive(true);
@@ -58,6 +78,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+    // Spawn Everything 
     void SpawnBombs()
     {
         Vector3 spawnAt = new Vector3(Random.Range(spawnBoundX, -spawnBoundX), spawnBombY , 0); // Spawn at random X value same Y and z doesn't matter
@@ -76,11 +97,13 @@ public class GameManager : MonoBehaviour
         Instantiate(HealthUP, spawnAt, HealthUP.transform.rotation);
     }
 
+    // Restart Button Logic
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    // Adding Score
     public void AddScore(int scoreAdd)
     {
         score += scoreAdd;

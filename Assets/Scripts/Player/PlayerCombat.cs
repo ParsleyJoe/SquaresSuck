@@ -15,7 +15,6 @@ public class PlayerCombat : MonoBehaviour
     public GameObject bullet;
     public float timeBtwShots = 2.0f;
     public ParticleSystem hitParticles;
-    public int collisionDamage = 10;
     public int powerUPHealthIncrease = 40;
     public WeaponType currentWeaponType;
     public AudioClip powerUpSound;
@@ -35,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && currentTimeBtwShots <= 0)
+        if (Input.GetKey(KeyCode.Mouse0) && currentTimeBtwShots <= 0)
         {
             Shoot();
             currentTimeBtwShots = timeBtwShots;
