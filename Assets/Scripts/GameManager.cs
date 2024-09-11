@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public float spawnBombsEvery; // ___ seconds
     public float spawnEnemiesEvery;
     public float spawnEnemiesLimit = 1.0f;
-    public float decrementSpawnRateBy = 0.3f;
+    public float decrementSpawnRateBy = 0.5f;
     public int enemiesInSceneLimit = 10;
     private float decrementCountdown = 30f;
     private float currentDecrementTime;

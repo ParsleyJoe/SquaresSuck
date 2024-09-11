@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1312868038021333016}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.94, y: 0, z: 0}
+  m_LocalPosition: {x: -17.1, y: 2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57,8 +57,8 @@ Transform:
   m_GameObject: {fileID: 2719523759570771855}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.63, y: -0.17, z: 0}
-  m_LocalScale: {x: 0.15457314, y: 0.15457314, z: 0.15457314}
+  m_LocalPosition: {x: -12.94, y: 0.93, z: 0}
+  m_LocalScale: {x: 1.6645861, y: 1.6645861, z: 1.6645861}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9030242320335938121}
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 6452292298876825285}
   - component: {fileID: 8563783716378007951}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: New Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 4.79, y: -2.43, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.07936625, y: 0.07936625, z: 0.07936625}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2466380855426888471}
@@ -195,8 +195,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1421164427
   m_SortingLayer: 1
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 8e415de826f0a314bb3b42bd4a716bce, type: 3}
   m_Color: {r: 0.990566, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -266,18 +266,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -2.1679764, y: 5.242569}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 43.199997, y: 54.013184}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 30.405685, y: 30.878696}
   m_EdgeRadius: 0
 --- !u!114 &7530048988963673992
 MonoBehaviour:
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirePoint: {fileID: 1312868038021333016}
   bulletPrefab: {fileID: 7561153076302276215, guid: 7e6733ce47cde844d95c274ace41dfc0, type: 3}
-  timeBtwShots: 2
+  timeBtwShots: 1.5
 --- !u!114 &6452292298876825285
 MonoBehaviour:
   m_ObjectHideFlags: 0

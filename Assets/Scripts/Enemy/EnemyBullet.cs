@@ -17,7 +17,7 @@ public class EnemyBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("PowerUP"))
+        if (!collision.CompareTag("PowerUP") && !collision.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }

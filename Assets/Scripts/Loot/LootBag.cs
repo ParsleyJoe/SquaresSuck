@@ -41,7 +41,7 @@ public class LootBag : MonoBehaviour
 
             float dropForce = 300f;
             Vector2 dropDirection = new Vector2(Random.Range(-1f, 1f), -2);
-            lootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirection * dropForce, ForceMode2D.Impulse);
+            lootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirection.normalized * dropForce, ForceMode2D.Impulse);
         }
     }
 }

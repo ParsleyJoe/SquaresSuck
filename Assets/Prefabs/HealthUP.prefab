@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7646978062922189247}
   - component: {fileID: 7331044177507535674}
   - component: {fileID: 1671313566889882365}
-  - component: {fileID: 846105371657315212}
   m_Layer: 0
   m_Name: HealthUP
   m_TagString: PowerUP
@@ -131,16 +130,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.7342844, y: 4.816226}
   m_EdgeRadius: 0
---- !u!114 &846105371657315212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7795053462964649924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e023153ce7e82454c94f7ea37969bb69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerUpType: 1
